@@ -1,0 +1,33 @@
+name: Build & Release
+run-name: "Release ${{ github.sha }}"
+
+on:
+  pull_request:
+    branches:
+      - master
+    tags-ignore:
+      - 'skip-release'
+    types:
+      - closed
+    paths-ignore:
+      - '*.md'
+      - 'LICENSE'
+      - '.gitignore'
+
+jobs:
+  debug:
+    name: Debug
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Only merge allowed
+        run: |
+          echo "Merge"
+
+  debug:
+    name: Debug2
+    runs-on: ubuntu-latest
+    steps:
+      - name: For any close event
+        run: |
+          echo "Any"
