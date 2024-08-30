@@ -5,8 +5,6 @@ on:
   pull_request:
     branches:
       - master
-    tags-ignore:
-      - 'skip-release'
     types:
       - closed
     paths-ignore:
@@ -17,7 +15,7 @@ on:
 jobs:
   debug1:
     name: Debug
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'skip-release')
     runs-on: ubuntu-latest
     steps:
       - name: Only merge allowed
