@@ -15,7 +15,7 @@ on:
       - '.gitignore'
 
 jobs:
-  debug:
+  debug1:
     name: Debug
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "Merge"
 
-  debug:
+  debug2:
     name: Debug2
     runs-on: ubuntu-latest
     steps:
